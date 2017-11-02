@@ -12,7 +12,7 @@ The only thing you need to run REBlog is a working REBOL interpreter.
 
 ## Installation
 
-If you want to try REBlog please consult the file `doku.html` included in the archive. It is in German language, but I won't translate it - as mentioned before I do no longer care about this project, sorry.
+See INSTALL.md for installation instructions.
 
 ## Options
 
