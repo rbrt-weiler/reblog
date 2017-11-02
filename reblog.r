@@ -5,7 +5,7 @@
 REBOL [
 	Title:    "REBlog"
 	Date:     16-Aug-2003
-	File:     %blog.r
+	File:     %reblog.r
 	Version:  0.1.1
 	Language: 'German
 
@@ -13,7 +13,7 @@ REBOL [
 	Owner:    "Robert Weiler"
 	Rights:   "Copyright (C) 2003 Robert Weiler"
 	License:  "GPL <http://www.gnu.org/licenses/gpl.html>"
-	Home:     http://www.robwei.de/files/rebol/
+	Home:     https://gitlab.com/rbrt-weiler/reblog/
 
 	Purpose:  {
 		REBlog somehow is a rewrite of the blogging software Bloxsom in
@@ -44,22 +44,22 @@ REBOL [
 
 
 
-; Schreibbarer Pfad um Konfiguration / Einträge / Kommentare abzuspeichern
+; Writable path to store config / entries / comments
 data-dir: %"/path/to/data/"
 
-; Automatische Konfiguration weiterer Dateien / Pfade
+; automatic ocnfiguration of additional files / paths
 authors-file: join data-dir [ "authors" ]
 meta-file: join data-dir [ "metadata" ]
 post-dir: join data-dir [ "posts/" ]
 
-; Sonstige Variablen
+; additional variables
 page-generator: join system/script/title [ "/" system/script/header/Version ]
 
 
 
-; Funktion um aus einem REBOL-Datum etwas zu erstellen das man richtig sortieren kann
+; function to turn a REBOL date into something sortable
 iso-date: func [
-	reb-date [ date! ] "Das aktuelle Datum im REBOL-Format."
+	reb-date [ date! ] "The current date in REBOL format."
 ] [
 	reb-time: reb-date/time
 	year: to-string reb-date/year
@@ -90,12 +90,12 @@ iso-date: func [
 
 
 
-; Funktion zum absteigendem sortieren
+; function to sort stuff in a descending manner
 sort-descending: func [	a b ] [ a > b ]
 
 
 
-; HTTP-Header - jetzt schon ausgeben wegen möglichen Fehlermeldungen
+; HTTP header - right now because of possible error messages
 print "Content-Type: text/html; charset=ISO-8859-15"
 print "Expires: 0"
 print join "X-Powered-By: " [ page-generator " REBOL/" system/version ]
@@ -103,7 +103,7 @@ print ""
 
 
 
-; Authors-Datei einlesen und parsen
+; read and parse authors file
 either (exists? authors-file) [
 	authors: make block! 50
 	lines: read/lines authors-file
@@ -123,7 +123,7 @@ either (exists? authors-file) [
 
 
 
-; post-dir komplett auslesen, Einträge absteigend nach letzter Modifikation sortieren
+; read post dir and sort by last modification (descending)
 postings: make block! 500
 
 foreach entry read post-dir [
@@ -139,12 +139,12 @@ sort/compare/skip postings :sort-descending 2
 
 
 
-; Die maximal 15 aktuellsten Postings anzeigen
+; show the most current posts (max 15)
 if (length? postings) > 30 [
 	postings: copy/part postings 30
 ]
 
-; HTML-Header
+; HTML header
 print {<html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=ISO-8859-15">
@@ -155,7 +155,7 @@ print {<html>
 		<h1>REBlog devBlog</h1>
 		<hr>}
 
-; Postings durchgehen
+; go through the posts
 foreach [ date file ] postings [
 	lines: read/lines file
 	count: 0
@@ -185,7 +185,7 @@ foreach [ date file ] postings [
 
 unset [ date file lines count line author-data datetime author title entry ]
 
-; HTML-Footer
+; HTML footer
 print "		<hr>"
 print join {		<div align="right">powered by } [ page-generator "</div>" ]
 print {	</body>
