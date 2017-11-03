@@ -12,7 +12,7 @@ REBOL [
 	Author:   "Robert Weiler"
 	Owner:    "Robert Weiler"
 	Rights:   "Copyright (C) 2003 Robert Weiler"
-	License:  "GPL <http://www.gnu.org/licenses/gpl.html>"
+	License:  "Zlib <LICENSE>"
 	Home:     https://gitlab.com/rbrt-weiler/reblog/
 
 	Purpose:  {
