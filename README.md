@@ -18,6 +18,10 @@ See INSTALL.md for installation instructions.
 
 REBlog has no options.
 
+## Source
+
+The main repository for REBlog is located at GitLab: [https://gitlab.com/rbrt-weiler/reblog](https://gitlab.com/rbrt-weiler/reblog)
+
 ## License
 
 REBlog is released under the GNU General Public License. See the file LICENSE-GPL included in the archive for details.
