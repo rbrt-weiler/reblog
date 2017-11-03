@@ -24,7 +24,7 @@ The main repository for REBlog is located at GitLab: [https://gitlab.com/rbrt-we
 
 ## License
 
-REBlog is released under the GNU General Public License. See the file LICENSE-GPL included in the archive for details.
+REBlog is released under the Zlib License. See the file LICENSE for details.
 
 ## Copyright
 
