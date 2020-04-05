@@ -29,4 +29,3 @@ REBlog is released under the Zlib License. See the file LICENSE for details.
 ## Copyright
 
 REBlog is (c) 2003 Robert Weiler.
-
