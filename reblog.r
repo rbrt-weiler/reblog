@@ -47,7 +47,7 @@ REBOL [
 ; Writable path to store config / entries / comments
 data-dir: %"/path/to/data/"
 
-; automatic ocnfiguration of additional files / paths
+; automatic configuration of additional files / paths
 authors-file: join data-dir [ "authors" ]
 meta-file: join data-dir [ "metadata" ]
 post-dir: join data-dir [ "posts/" ]
